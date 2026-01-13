@@ -11,6 +11,35 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_test {
+            bindings = <&kp A>;
+            key-positions = <5 4>;
+        };
+    };
+
+    macros {
+        macro_test: macro_test {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp A &kp B>;
+            label = "MACRO_TEST";
+        };
+    };
+
+    behaviors {
+        ht_test: ht_test {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HT_TEST";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
